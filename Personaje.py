@@ -10,10 +10,10 @@ class Personaje:
             print("Sprint desactivado para " + self.nombre)  
               
     def lanzarGranadas(self):
-        print(self.nombre + "Lanzo una granada.")
+        print(self.nombre + " lanzo una granada.")
          
     def recarga(self, ammo):
         mag = 10
         mag = mag+ammo
-        print(self.nombre + " cargó "+ammo+" balas.")
-        print("Municion actual: "+mag+" balas.")
+        print(self.nombre + " cargó "+str(ammo)+" balas.")
+        print("Municion actual: "+str(mag)+" balas.")
