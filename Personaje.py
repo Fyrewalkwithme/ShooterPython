@@ -1,8 +1,12 @@
 class Personaje:
-    especie = "Humano"
-    nombre = "Master Chief"
-    altura = "2.70"
     
+    #Definir constructor de clase
+    def __init__(self,esp,nom,alt): 
+        self.especie = esp
+        self.nombre = nom
+        self.altura = alt
+    
+    #Métodos de clase
     def correr(self, sprint):
         if(sprint):
             print("Sprint activado para " + self.nombre)
