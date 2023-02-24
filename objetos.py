@@ -18,17 +18,20 @@ recargaV = int(input("Cuantas balas a recargar: "))
 heroe = Personaje(especieH,nombreH,alturaH)
 villano = Personaje(especieV,nombreV,alturaV)
 
+#Ejemplo de set para un atributo
+heroe.setNombre("Pepe Pecas")
+
 print("")
 print("##### Datos Heroe #####")
-print("El personaje se llama "+ heroe.nombre)
-print("El personaje es "+ heroe.especie)
-print("El personaje tiene una altura de "+ str(heroe.altura))
+print("El personaje se llama "+ heroe.getNombre())
+print("El personaje es "+ heroe.getEspecie())
+print("El personaje tiene una altura de "+ str(heroe.getAltura()))
 
 print("")
 print("##### Datos Villano #####")
-print("El personaje se llama "+ villano.nombre)
-print("El personaje es "+ villano.especie)
-print("El personaje tiene una altura de "+ str(villano.altura))
+print("El personaje se llama "+ villano.getNombre())
+print("El personaje es "+ villano.getEspecie())
+print("El personaje tiene una altura de "+ str(villano.getAltura()))
 
 heroe.correr(True)
 heroe.lanzarGranadas()
