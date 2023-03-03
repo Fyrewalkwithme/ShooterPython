@@ -31,13 +31,13 @@ seccion3 = Frame(ventana, bg = 'orange')
 seccion3.pack(expand = True, fill='both')
 
 # Agregamos botones
-btnAzul = Button(seccion1,text="Boton Azul",fg="blue",command=MostrarMensajes)
+btnAzul = Button(seccion1,text="Boton Azul",fg="blue",command=mostrarMensajes)
 btnAzul.place(x=60,y=60)
 
 btnAmarillo = Button(seccion2, text="Boton Amarillo", fg="white",bg="#ffcf66")
 btnAmarillo.grid(row=0, column = 0)
 
-btnNegro= Button(seccion2, text="Boton Negro", fg="white", bg="#242424")
+btnNegro= Button(seccion2, text="Boton Negro", fg="white", bg="#242424", command=MostrarMensajes)
 btnNegro.grid(row=1, column=0)
 
 btnVerde= Button(seccion3, text="Boton Verde", fg="white", bg="#49cc54", command=agregarBoton)
