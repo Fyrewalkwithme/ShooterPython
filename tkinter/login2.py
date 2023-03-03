@@ -1,19 +1,21 @@
 from tkinter import Tk,Button,Frame,Entry,Label,font,messagebox
-__correoLog="a"
-__passLog="a"
-    
-def mensajeExito():
-    messagebox.showinfo("Exito", "Login Exitoso, bienvenido.")
-def mensajeError():
-    messagebox.showerror("Error", "Error en la autenticacion.")
-    
-def checkLogin():
-    if __correoLog == __campoCorreo.get() and __passLog == __campoPass.get():
-        return mensajeExito()
-    else:
-        return mensajeError()
-        
+from validador import *
+
+def getCorreo():
+    return __campoCorreo.get()
+def getPass():
+    return __campoPass.get()
     #Instancia ventana principal
+    
+    
+def check():
+    log = validador()
+    correo = __campoCorreo.get()
+    pass1 = __campoPass.get()
+    log.checkfinal(correo,pass1)
+    
+
+        
 __ventana = Tk()
 __ventana.title("Login Empresarial")
 __ventana.geometry("800x600")
@@ -35,7 +37,7 @@ __Titulo.configure(font=("Verdana",30,"bold"))
 __Titulo.place(x=250,y=80)
 
     #Agregar Boton
-__btnLogin = Button(__sec3,text="Log In", fg="black", bg="#c0c0c0", command=checkLogin)
+__btnLogin = Button(__sec3,text="Log In", fg="black", bg="#c0c0c0", command=check)
 __btnLogin.place(width=80, height=30, x=350, y=0)
 
     #Agregar campos y texto de campos
@@ -53,6 +55,7 @@ __txtPass.place(x=465,y=77)
 __campoPass = Entry(__sec2, bg="#F3F3F3")
 __campoPass.place(x=575, y=80)
 __campoPass.configure(show="*")
+
 
     #Llamar a la ventana principal
 __ventana.mainloop()
