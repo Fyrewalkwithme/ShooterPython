@@ -1,7 +1,7 @@
 from tkinter import Tk,Button,Frame,messagebox,Entry,Label,font
 
-correoLog = "121037788@upq.edu.mx"
-passLog = "mirage"
+__correoLog = "121037788@upq.edu.mx"
+__passLog = "mirage"
 
 def mensajeExito():
     messagebox.showinfo("Exito", "Login Exitoso, bienvenido.")
@@ -9,51 +9,51 @@ def mensajeError():
     messagebox.showerror("Error", "Error en la autenticacion.")
     
 def checkLogin():
-    if correoLog == campoCorreo.get() and passLog == campoPass.get():
+    if __correoLog == __campoCorreo.get() and __passLog == __campoPass.get():
         return mensajeExito()
     else:
         return mensajeError()
 
 #Instancia ventana principal
-ventana = Tk()
-ventana.title("Login Empresarial")
-ventana.geometry("800x600")
-ventana.configure(background="#F3F3F3")
+__ventana = Tk()
+__ventana.title("Login Empresarial")
+__ventana.geometry("800x600")
+__ventana.configure(background="#F3F3F3")
 
 #Agregar Frame
-sec1 = Frame(ventana, bg="#DFDFDF")
-sec1.pack(expand=True, fill='both')
+__sec1 = Frame(__ventana, bg="#DFDFDF")
+__sec1.pack(expand=True, fill='both')
 
-sec2 = Frame(ventana)
-sec2.pack(expand=True, fill="both")
+__sec2 = Frame(__ventana)
+__sec2.pack(expand=True, fill="both")
 
-sec3 = Frame(ventana)
-sec3.pack(expand=True, fill="both")
+__sec3 = Frame(__ventana)
+__sec3.pack(expand=True, fill="both")
 
 #Label de Título
-Titulo = Label(sec1,text="Identificate.", fg="Black",bg="#DFDFDF")
-Titulo.configure(font=("Verdana",30,"bold"))
-Titulo.place(x=250,y=80)
+__Titulo = Label(__sec1,text="Identificate.", fg="Black",bg="#DFDFDF")
+__Titulo.configure(font=("Verdana",30,"bold"))
+__Titulo.place(x=250,y=80)
 
 #Agregar Boton
-btnLogin = Button(sec3,text="Log In", fg="black", bg="#c0c0c0", command=checkLogin)
-btnLogin.place(width=80, height=30, x=350, y=0)
+__btnLogin = Button(__sec3,text="Log In", fg="black", bg="#c0c0c0", command=checkLogin)
+__btnLogin.place(width=80, height=30, x=350, y=0)
 
 #Agregar campos y texto de campos
-txtCorreo = Label(sec2,text="Correo:", fg="Black")
-txtCorreo.configure(font=("Verdana"))
-txtCorreo.place(x=80,y=77)
+__txtCorreo = Label(__sec2,text="Correo:", fg="Black")
+__txtCorreo.configure(font=("Verdana"))
+__txtCorreo.place(x=80,y=77)
 
-campoCorreo = Entry(sec2, bg="#F3F3F3")
-campoCorreo.place(x=150, y=80)
+__campoCorreo = Entry(__sec2, bg="#F3F3F3")
+__campoCorreo.place(x=150, y=80)
 
-txtPass = Label(sec2,text="Contraseña:", fg="Black")
-txtPass.configure(font=("Verdana"))
-txtPass.place(x=465,y=77)
+__txtPass = Label(__sec2,text="Contraseña:", fg="Black")
+__txtPass.configure(font=("Verdana"))
+__txtPass.place(x=465,y=77)
 
-campoPass = Entry(sec2, bg="#F3F3F3")
-campoPass.place(x=575, y=80)
-campoPass.configure(show="*")
+__campoPass = Entry(__sec2, bg="#F3F3F3")
+__campoPass.place(x=575, y=80)
+__campoPass.configure(show="*")
 
 #Llamar a la ventana principal
-ventana.mainloop()
+__ventana.mainloop()
