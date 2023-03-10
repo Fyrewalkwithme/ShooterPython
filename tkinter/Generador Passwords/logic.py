@@ -5,26 +5,24 @@ import string
 class logica:
     
     def __init__(self):
-        self.a = 1
-    
+        self
     def generarPassFinal(self, valC, valS, largo):
-        self.base = string.ascii_lowercase
-        self.caps = string.ascii_letters
         self.specialnocap = string.ascii_lowercase + string.punctuation
         self.specialcap = string.printable
         
-        if valC and valS == False:
-            self.password = ''.join(random.sample(self.base, largo))
+        if valC == True and valS == True:
+            self.password = ''.join(random.sample(string.ascii_lowercase, k=largo))
             self.passBox = messagebox.showinfo("Contraseña Generada", "Tu contraseña es "+ str(self.password))
+            return
         else:
             if valC == True and valS == False:
-                self.password = ''.join(random.sample(self.caps, largo))
+                self.password = ''.join(random.sample(string.ascii_letters, k=largo))
                 self.passBox = messagebox.showinfo("Contraseña Generada", "Tu contraseña es "+ str(self.password))
             else:
                 if valS == True and valC == False:
-                    self.password = ''.join(random.sample(self.specialnocap, largo))
+                    self.password = ''.join(random.sample(self.specialnocap, k=largo))
                     self.passBox = messagebox.showinfo("Contraseña Generada", "Tu contraseña es "+ str(self.password))
                 else:
-                    self.password =  ''.join(random.sample(self.specialcap, largo))
+                    self.password =  ''.join(random.sample(self.specialcap, k=largo))
                     self.passBox = messagebox.showinfo("Contraseña Generada", "Tu contraseña es "+ str(self.password))
                     

@@ -23,15 +23,20 @@ entryLargo.place(x="142", y="145")
 
 def generarPass():
     log = logica()
-    largo = int(entryLargo.get())
-    log.generarPassFinal(ValC, ValS, largo)                  
- 
-ValC = BooleanVar
-checkboxCaps = Checkbutton(sec1,variable=ValC, onvalue=True, offvalue=False, text="Mayúsculas?",bg="#feff9c",fg="Black",font="Lucida 13")
+    if entryLargo.get() == '':
+        largo = 8
+    else:
+        largo = int(entryLargo.get())
+    ValC2 = ValC.get()
+    ValS2 = ValS.get()
+    log.generarPassFinal(ValC2, ValS2, largo)                  
+
+ValC = BooleanVar()
+checkboxCaps = Checkbutton(sec1, variable=ValC, onvalue=False, offvalue=True, text="Mayúsculas?",bg="#feff9c",fg="Black",font="Lucida 13")
 checkboxCaps.place(x=140,y=190)
 
-ValS = BooleanVar
-checkboxSpecial = Checkbutton(sec1,variable=ValS, onvalue=True, offvalue=False, text="Car. Especiales?",bg="#feff9c",fg="Black",font="Lucida 13")
+ValS = BooleanVar()
+checkboxSpecial = Checkbutton(sec1, variable=ValS, onvalue=False, offvalue=True, text="Car. Especiales?",bg="#feff9c",fg="Black",font="Lucida 13")
 checkboxSpecial.place(x=127,y=220)
     
 btnGenerar = Button(sec1, bg="#cdff9c", fg="Black",text="Generar", command=generarPass)
