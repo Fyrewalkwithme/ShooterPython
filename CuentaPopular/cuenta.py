@@ -7,7 +7,6 @@ class cuenta:
         self.titular = t
         self.edad = e
     
-    saldo = 300
     def consulSaldo(self):
         self.msgSaldo = messagebox.showinfo("Saldo Actual", "Su saldo es de: "+str(self.saldo)+" pesos.")
         
@@ -15,8 +14,13 @@ class cuenta:
         self.depo = int(deposito)
         self.saldo += self.depo
         self.msgSaldo = messagebox.showinfo("Ingreso Exitoso", "Su saldo es de: "+str(self.saldo)+" pesos.")
+    def ingEfec2(self, deposito):
+        self.depo = int(deposito)
+        self.saldo += self.depo
+        self.msgSaldo = messagebox.showinfo("Depósito exitoso", "La cuenta a la que depositaste ahora tiene: "+str(self.saldo)+" pesos.")
         
     def retEfec(self, retiro):
         self.reti = int(retiro)
         self.saldo -= self.reti
         self.msgSaldo = messagebox.showinfo("Ingreso Exitoso", "Su saldo es de: "+str(self.saldo)+" pesos.")
+    
