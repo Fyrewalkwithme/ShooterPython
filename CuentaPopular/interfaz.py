@@ -45,6 +45,7 @@ def depositarOtro():
     for i in range(0, len(listausu)):
         if i == dest:
             listausu[i].ingEfec2(cant)
+            usu.retEfec2(cant)
             msg = messagebox.showinfo("Deposito Exitoso", "Se deposito con exito a la cuenta numero " +str(i))
             
 textoSaldo = Label(sec1,bg="#d2fcfc", fg="Black", font="Lucida 10", text="Saldo Inicial: ")
@@ -71,9 +72,9 @@ textoEdad.place(x="400", y="175")
 entryEdad = Entry(sec1, bg="#d2fcfc")
 entryEdad.place(x="490", y="176")  
    
-btnConsultar = Button(sec1, bg="white", fg="Black",text="Registrar", command = regUsuario)
-btnConsultar.configure(width="16", height="2")
-btnConsultar.place(x=500,y=400)
+btnRegistrar = Button(sec1, bg="white", fg="Black",text="Registrar", command = regUsuario)
+btnRegistrar.configure(width="16", height="2")
+btnRegistrar.place(x=500,y=400)
 
 textoTop = Label(sec1,bg="#d2fcfc", fg="Black", font="Lucida 18 bold", text="Cuenta - Caja Popular")
 textoTop.pack(pady=40)

@@ -22,5 +22,10 @@ class cuenta:
     def retEfec(self, retiro):
         self.reti = int(retiro)
         self.saldo -= self.reti
-        self.msgSaldo = messagebox.showinfo("Ingreso Exitoso", "Su saldo es de: "+str(self.saldo)+" pesos.")
+        self.msgSaldo = messagebox.showinfo("Retiro Exitoso", "Su saldo es de: "+str(self.saldo)+" pesos.")
+    
+    def retEfec2(self, retiro):
+        self.reti = int(retiro)
+        self.saldo -= self.reti
+        self.msgSaldo = messagebox.showinfo("Depósito a otra cuenta Exitoso", "Su saldo es de: "+str(self.saldo)+" pesos.")
     
