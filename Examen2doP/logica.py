@@ -21,9 +21,13 @@ class controlador:
         
         self.paternogen = self.paternoup[0:3]
         self.maternogen = self.maternoup[0:3]
-        self.encursogen = self.encurso[0:2]
-        self.nacimientogen = self.nacimiento[0:2] 
+        self.encursogen = self.encurso[-2:]
+        self.nacimientogen = self.nacimiento[-2:] 
         self.carreragen = self.carreraup[0:3]
         self.nombregen = self.nombreup[0]
         
-        print(self.paternogen + self.maternogen + self.encursogen + self.nacimientogen + self.carreragen + self.nombregen)
+        self.random = random.randint(100,999)
+        self.randomgen = str(self.random)
+        
+        passgenerado = str(self.carreragen +  self.encursogen + self.nacimientogen + self.nombregen + self.paternogen + self.maternogen + self.randomgen)
+        msg = messagebox.showinfo("Generación exitosa", "Tu contraseña es: "+ passgenerado)
