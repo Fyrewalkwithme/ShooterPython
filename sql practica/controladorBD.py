@@ -45,3 +45,27 @@ class controladorBD:
         conHa = bcrypt.hashpw(plainpass, sal)
         print(conHa)
         return conHa
+    
+    def consultaUsuario(self, id):
+        #1 preparar la conexion
+        conx = self.conexionBD()
+        
+        #2 verificar que el id no esté vacío.
+        if(id == ""):
+            messagebox.showwarning("Cuidado!", "Id no puede estar vacía.")
+            conx.close()
+        else:
+            try:
+                cursor = conx.cursor()
+                sqlselect = "select * from DBRegistrados where id="+str(id)
+                
+                cursor.execute(sqlselect)
+                RSUsuarios = cursor.fetchall()
+                conx.close()
+                
+                return RSUsuarios
+            
+            except sqlite3.OperationalError:
+                print("Error en la consulta.")
+            
+                
