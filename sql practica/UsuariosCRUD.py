@@ -17,7 +17,7 @@ def ejecutaSelectU():
         cadena = str(usu[0]) + "  " + usu[1] + "  " +  usu[2] + "  " + str(usu[3])
         
     if(rsUsuario):
-        print(cadena)
+        textBus.insert(tk.END, cadena)
     else:
         messagebox.showwarning("El usuario no existe en la base de datos")
 
@@ -57,7 +57,8 @@ lblid = Label(pestana2, text="Identificador de Usuario: ").pack()
 txtid = Entry(pestana2, textvariable=varBus).pack()
 
 subBus = Label(pestana2, text="Registrado:", fg="blue", font="Lucida 16").pack()
-textBus = tk.Text(pestana2, height=2, width=52).pack()
+textBus = Text(pestana2, height=2, width=52)
+textBus.pack()
 btnBusqueda = Button(pestana2, text="Buscar", command=ejecutaSelectU).pack()
 
 
