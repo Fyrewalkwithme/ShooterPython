@@ -57,7 +57,7 @@ class controladorBD:
         else:
             try:
                 cursor = conx.cursor()
-                sqlselect = "select * from DBRegistrados where id="+str(id)
+                sqlselect = "select * from DBRegistrados where id="+id
                 
                 cursor.execute(sqlselect)
                 RSUsuarios = cursor.fetchall()
@@ -68,4 +68,13 @@ class controladorBD:
             except sqlite3.OperationalError:
                 print("Error en la consulta.")
             
+    def selectUsuarios(self):
+        conx = self.conexionBD()
+        
+        cursor = conx.cursor()
+        sqlselect= "select * from DBRegistrados"
+        cursor.execute(sqlselect)
+        RSTotal = cursor.fetchall()
+        
+        return RSTotal
                 

@@ -21,6 +21,14 @@ def ejecutaSelectU():
     else:
         messagebox.showwarning("El usuario no existe en la base de datos")
 
+def ejecutaselectT():
+    for i in tabla.get_children():
+        tabla.delete(i)
+        
+    rsTotal = (controlador.selectUsuarios())
+    for dato in rsTotal:
+        tabla.insert('', tk.END, values= dato)
+    
 ventana = Tk()
 ventana.title("CRUD Usuarios")
 ventana.geometry("500x300")
@@ -61,6 +69,20 @@ textBus = Text(pestana2, height=2, width=52)
 textBus.pack()
 btnBusqueda = Button(pestana2, text="Buscar", command=ejecutaSelectU).pack()
 
+#3 Select de todos los usuarios en la tercera pestaña
+columnas = ('id','nombre','correo','contra')
+
+tabla = ttk.Treeview(pestana3, columns=columnas, show='headings')
+#definir los encabezados
+
+tabla.heading('id', text='Identificador')
+tabla.heading('nombre', text='Nombre')
+tabla.heading('correo', text='Correo')
+tabla.heading('contra',text='Contaseña')
+tabla.pack()
+
+btnshow = Button(pestana3, text="Mostrar Registros", command=ejecutaselectT)
+btnshow.pack()
 
 panel.add(pestana1, text="Formulario de Usuarios")
 panel.add(pestana2, text="Buscar Usuario")
