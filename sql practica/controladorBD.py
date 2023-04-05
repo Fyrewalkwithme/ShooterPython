@@ -35,7 +35,7 @@ class controladorBD:
             #Insertar y cerrar la conexión
             cursor.execute(qryInsert, datos)
             conx.commit()
-            conx.close
+            conx.close()
             messagebox.showinfo("Exito", "Se guardó el Usuario")
             
     def encriptarCont(self,con):
@@ -76,5 +76,35 @@ class controladorBD:
         cursor.execute(sqlselect)
         RSTotal = cursor.fetchall()
         
+        conx.close()
+        
         return RSTotal
-                
+    
+    
+    def ActualizaU(self,IDen,Nom,Cor,Con):
+        conx = self.conexionBD()
+        cursor = conx.cursor()
+        update = 'UPDATE DBRegistrados set nombre=?, correo=?, contra=? WHERE id = '+IDen
+                        
+        if IDen == "":
+            messagebox.showwarning("Cuidado!", "La id no puede estar vacía!")
+            conx.close
+        else:
+                cursor.execute(update, (Nom,Cor,Con))
+                conx.commit()
+                conx.close()
+                messagebox.showinfo("Registro Actualizado", "El registro con la id "+str(IDen)+" ha sido actualizado.")
+    
+    def EliminarU(self,IDen):
+        conx = self.conexionBD()
+        cursor = conx.cursor()
+        eliminar = "DELETE from DBRegistrados where id ="+IDen
+        
+        confirmacion = messagebox.askokcancel("Confirmar", "Deseas proceder con la eliminación del registro con id "+IDen+"?")
+        
+        if confirmacion:
+            cursor.execute(eliminar)
+            conx.commit()
+            conx.close()
+            messagebox.showinfo("Eliminación", "Eliminación exitosa")
+        

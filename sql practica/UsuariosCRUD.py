@@ -11,6 +11,7 @@ def ejecutaInsert():
     controlador.guardarUsuario(varNom.get(), varCor.get(), varCon.get())
 
 def ejecutaSelectU():
+    textBus.delete("1.0",END)
     rsUsuario = controlador.consultaUsuario(varBus.get())
     
     for usu in rsUsuario:
@@ -28,7 +29,18 @@ def ejecutaselectT():
     rsTotal = (controlador.selectUsuarios())
     for dato in rsTotal:
         tabla.insert('', tk.END, values= dato)
+        
+def ActualizaReg():
+    IDen = varIDA.get()
+    Nom = varNomA.get()
+    Cor = varCorA.get()
+    Con = varConA.get()
+    controlador.ActualizaU(IDen,Nom,Cor,Con)
     
+def EliminaReg():
+    IDen = varIDE.get()
+    controlador.EliminarU(IDen)
+  
 ventana = Tk()
 ventana.title("CRUD Usuarios")
 ventana.geometry("500x300")
@@ -40,6 +52,7 @@ pestana1 = ttk.Frame(panel)
 pestana2 = ttk.Frame(panel)
 pestana3 = ttk.Frame(panel)
 pestana4 = ttk.Frame(panel)
+pestana5 = ttk.Frame(panel)
 
 #Formulario de Usuarios
 titulo = Label(pestana1, text="Registro Usuarios", fg="Blue", font="Lucida 18 bold").pack()
@@ -84,9 +97,44 @@ tabla.pack()
 btnshow = Button(pestana3, text="Mostrar Registros", command=ejecutaselectT)
 btnshow.pack()
 
+#Actualizar un usuario
+tituloactu = Label(pestana4,text="Actualizar Registros", fg="Black", font="Lucida 18 bold")
+tituloactu.pack()
+
+varIDA = tk.StringVar()
+lblIDA = Label(pestana4, text="ID: ").pack()
+txtIDA = Entry(pestana4, textvariable=varIDA).pack()
+
+varNomA = tk.StringVar()
+lblNomA = Label(pestana4, text="Nombre: ").pack()
+txtNomA = Entry(pestana4, textvariable=varNomA).pack()
+
+varCorA = tk.StringVar()
+lblCorA = Label(pestana4, text="Correo: ").pack()
+txtCorA = Entry(pestana4, textvariable=varCorA).pack()
+
+varConA = tk.StringVar()
+lblConA = Label(pestana4, text="Contraseña: ").pack()
+txtConA = Entry(pestana4, textvariable=varConA).pack()
+
+btnConfA = Button(pestana4, fg="Black", text="Actualizar", command=ActualizaReg)
+btnConfA.pack(pady=8)
+
+#Pestaña para eliminar registros
+
+LblElim = Label(pestana5, text="Eliminar Registros", fg="Black", font="Lucida 18 bold").pack(pady=10)
+
+varIDE = tk.StringVar()
+lblIDE = Label(pestana5, text="ID: ").pack(pady=10)
+txtIDE = Entry(pestana5, textvariable=varIDE).pack(pady=10)
+
+btnConfE = Button(pestana5, fg="Black", text="Eliminar", command=EliminaReg)
+btnConfE.pack(pady=8)
+
 panel.add(pestana1, text="Formulario de Usuarios")
 panel.add(pestana2, text="Buscar Usuario")
 panel.add(pestana3, text="Consultar Usuarios")
 panel.add(pestana4, text="Actualizar Usuario")
+panel.add(pestana5, text="Eliminar Registro")
 
 ventana.mainloop()
